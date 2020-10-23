@@ -1,0 +1,23 @@
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  padding: 4rem;
+  margin: auto;
+  box-shadow: -0.4rem 0.8rem 1.6rem var(--shadow);
+  border-radius: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.user-content {
+  display: flex;
+}
+.detail-container {
+  margin-left: 25px;
+}
+
+.profile-img {
+  margin-bottom: auto;
+  margin-top: 1.5rem;
+}

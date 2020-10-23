@@ -1,0 +1,37 @@
+.detail-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 1rem 2rem;
+  align-items: center;
+  border-bottom: 1px solid;
+}
+.detail-wrapper label {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  /* flex-grow: 1; */
+  font-weight: 500;
+  text-align: left;
+  width: 40%;
+  letter-spacing: 0.1rem;
+}
+
+.detail-wrapper p {
+  font-size: 1.3rem;
+  /* flex-grow: 2; */
+  text-align: right;
+  width: 60%;
+  letter-spacing: 0.1rem;
+  color: #272727;
+}
+
+@media only screen and (max-width: 500px) {
+  .detail-wrapper {
+    flex-direction: column;
+  }
+  .detail-wrapper label {
+    width: 100%;
+  }
+  .detail-wrapper p {
+    width: 90%;
+  }
+}
