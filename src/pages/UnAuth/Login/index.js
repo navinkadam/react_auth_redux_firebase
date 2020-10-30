@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik';
 import Heading from '../../../components/Heading';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
-import CustomLink from '../../../components/CustomLink';
+// import CustomLink from '../../../components/CustomLink';
 import { LoginSchema } from '../../../constant/FormSchema';
 import * as actions from '../../../store/actions';
 import './login.css';

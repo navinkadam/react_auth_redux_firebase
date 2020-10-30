@@ -19,8 +19,6 @@ export default function Signup({ isEdit }) {
     fName: '',
     lName: '',
     phoneNumber: '',
-    age: '',
-    address: '',
     email: '',
     password: '',
     passwordConfirmation: '',
@@ -69,11 +67,8 @@ export default function Signup({ isEdit }) {
               <Field name="lName" label="Last Name" type="text" component={Input} />
             </div>
             <Field name="email" label="Email" type="email" component={Input} disabled={!!isEdit} />
-            <div className="field-wrapper">
-              <Field name="phoneNumber" label="Phone Number" type="number" component={Input} />
-              <Field name="age" label="Age" type="number" component={Input} />
-            </div>
-            <Field name="address" label="Address" type="text" component={Input} />
+            <Field name="phoneNumber" label="Phone Number" type="number" component={Input} />
+
             {!isEdit && (
               <div className="field-wrapper">
                 <Field name="password" label="Password" type="password" component={Input} />

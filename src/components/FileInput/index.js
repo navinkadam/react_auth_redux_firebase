@@ -9,7 +9,6 @@ export default ({ profileURL, onChange, className = '' }) => {
     let reader = new FileReader();
     const fileRef = file.target.files[0];
     reader.onloadend = e => {
-      console.log(onChange);
       setDefaultAvatar(reader.result);
       onChange && onChange(fileRef);
     };
@@ -30,8 +29,8 @@ export default ({ profileURL, onChange, className = '' }) => {
 
   return (
     <div className={`profile-upload ${className}`}>
-      <img src={defaultAvatar || initImg} alt="User " className="img-container" />
-      <label>{onChange && <input type="file" className="file-input" onChange={onFileChange} alt="user" />}</label>
+      <img src={defaultAvatar || initImg} alt="User profile " className="img-container" />
+      <label>{onChange && <input type="file" accept="image/*" className="file-input" onChange={onFileChange} alt="user" />}</label>
     </div>
   );
 };

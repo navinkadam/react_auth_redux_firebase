@@ -26,8 +26,6 @@ export default function Profile() {
           <Detail label="Last Name" value={user.lName || ''} />
           <Detail label="E-mail" value={user.email || ''} />
           <Detail label="Phone Number" value={user.phoneNumber || ''} />
-          <Detail label="Age" value={user.age || ''} />
-          <Detail label="Address" value={user.address || ''} />
         </div>
       </div>
       <div>

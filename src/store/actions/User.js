@@ -16,7 +16,8 @@ export function signUp(data, dispatch) {
 
         data.id = user.uid;
         await fireStoreDB.collection('users').doc(user.uid).set(data);
-        if (dispatch) fileData ? dispatch(uploadUserProfileImg({ profile: data, fileData }), dispatch) : dispatch(getUserData(dispatch));
+        dispatch(getUserData(dispatch));
+        if (fileData) dispatch(uploadUserProfileImg({ profile: data, fileData }, dispatch), dispatch);
 
         resolve({ ...user });
       } catch (error) {
@@ -48,7 +49,6 @@ export function logout(dispatch) {
         resolve();
         if (dispatch) dispatch(getUserData());
       } catch (error) {
-        console.log('error logging out', error);
         reject();
       }
     }),
@@ -71,7 +71,6 @@ export function login(params, dispatch) {
 }
 
 export function updateProfile(params, dispatch) {
-  console.log(params);
   return {
     type: 'UPDATE_PROFILE',
     payload: new Promise(async (resolve, reject) => {
@@ -89,8 +88,7 @@ export function uploadUserProfileImg(params, dispatch) {
     payload: new Promise(async (resolve, reject) => {
       try {
         const fileName = `profile-images/${new Date().getTime()}-${fileData.name}`;
-        const storageRef = await storage.ref(`${fileName}`).put(fileData);
-        console.log(storageRef);
+        await storage.ref(`${fileName}`).put(fileData);
         dispatch(updateProfile({ ...profile, profileURL: fileName }, dispatch));
       } catch (error) {
         reject(error);
