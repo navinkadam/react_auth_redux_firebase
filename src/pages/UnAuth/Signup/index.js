@@ -12,6 +12,7 @@ import * as actions from '../../../store/actions';
 import './signup.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import ErrorMessage from '../../../components/ErrorMessage';
 
 export default function Signup({ isEdit }) {
   const dispatch = useDispatch();
@@ -79,6 +80,7 @@ export default function Signup({ isEdit }) {
             <Button type="submit" disabled={!isValid}>
               {isEdit ? 'Update Profile' : 'Sign Up'}
             </Button>
+            <ErrorMessage msg={user.ui_error_msg} />
           </Form>
         )}
       </Formik>

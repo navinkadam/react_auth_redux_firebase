@@ -6,7 +6,7 @@ const initState = {
   profile: {},
 };
 export default function (state = { ...initState }, action) {
-  const { type, payload } = action;
+  const { type, payload = {} } = action;
   switch (type) {
     case 'UPDATE_PROFILE_PENDING':
     case 'GET_USER_DATA_PENDING':
@@ -22,7 +22,7 @@ export default function (state = { ...initState }, action) {
 
     case 'LOGIN_FULFILLED':
     case 'SIGNUP_FULFILLED':
-      return { ...state, redirect: true, loaded: true, loading: false };
+      return { ...state, redirect: true, loaded: true, loading: false, ui_error: false, ui_error_msg: '' };
 
     case 'GET_USER_DATA_FULFILLED':
       return { ...state, profile: payload.data, loaded: true, loading: false };
@@ -34,7 +34,7 @@ export default function (state = { ...initState }, action) {
 
     case 'LOGIN_REJECTED':
     case 'SIGNUP_REJECTED':
-      return { ...state, loaded: true, loading: false, ui_error: true };
+      return { ...state, loaded: true, loading: false, ui_error: true, ui_error_msg: payload.message };
     case 'GET_USER_DATA_REJECTED':
       return { ...state, profile: {}, loaded: true, loading: false };
     case 'LOGOUT_REJECTED':

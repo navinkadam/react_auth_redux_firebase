@@ -1,18 +1,19 @@
 import React, { useMemo } from 'react';
 import { Formik, Form, Field } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Heading from '../../../components/Heading';
 import Input from '../../../components/Input';
 import Button from '../../../components/Button';
+import ErrorMessage from '../../../components/ErrorMessage';
 // import CustomLink from '../../../components/CustomLink';
 import { LoginSchema } from '../../../constant/FormSchema';
 import * as actions from '../../../store/actions';
 import './login.css';
-import { useDispatch } from 'react-redux';
 
 export default function Login() {
   const dispatch = useDispatch();
-
+  const user = useSelector(state => state.user);
   return (
     <div className="login-wrapper">
       <Heading>Sign In</Heading>
@@ -41,6 +42,7 @@ export default function Login() {
       {/* <CustomLink to="/">
         <Heading variant="h5">Forgot your password?</Heading>
       </CustomLink> */}
+      <ErrorMessage msg={user.ui_error_msg} />
     </div>
   );
 }

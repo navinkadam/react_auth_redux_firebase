@@ -49,7 +49,7 @@ export function logout(dispatch) {
         resolve();
         if (dispatch) dispatch(getUserData());
       } catch (error) {
-        reject();
+        reject(error);
       }
     }),
   };
@@ -63,8 +63,7 @@ export function login(params, dispatch) {
         await auth.signInWithEmailAndPassword(params.email, params.password);
         dispatch && resolve(getUserData(dispatch));
       } catch (error) {
-        reject();
-        alert(error.message);
+        reject(error);
       }
     }),
   };
