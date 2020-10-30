@@ -2,6 +2,8 @@
 
 ## Folder Structure
 
+---
+
 ├── src
 │ ├── components
 │ │ ├── Button
@@ -51,6 +53,8 @@
 ├── .README.md
 ├── .package.json
 
+---
+
 ```
 In case you need to specify the environment then one should pass in the environment variable as follows:
 ```
@@ -63,10 +67,10 @@ REACT_APP_FIREBASE_STORAGE_BUCKET="firebase_storage_bucket"
 REACT_APP_FIREBASE_MESSAGING_SENDER_ID="firebase_messaging_sender"
 REACT_APP_FIREBASE_APP_ID="firebase_app_id"
 
-#Production:
+##Production:
 NODE_ENV=production npm start
 
 ```
-#Development:
+##Development:
 NODE_ENV=development npm start
 ```
